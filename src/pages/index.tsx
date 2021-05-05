@@ -14,6 +14,8 @@ const Home = () => {
     barModel.setCount();
   };
 
+  console.log('rendering');
+
   return (
     <div>
       <div>
