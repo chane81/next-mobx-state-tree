@@ -1,12 +1,13 @@
 const withPlugins = require('next-compose-plugins');
 const dotenv = require('dotenv');
 const isDev = process.env.NODE_ENV === 'development';
-console.log('env', );
+const env = dotenv.config({ path: `./env/.env.${isDev ? 'dev' : 'prod'}` }).parsed || {};
 
 const nextConfig = {
   // .env 값 세팅
-  env: dotenv.config(`./env/.env.${isDev ? 'dev' : 'prod'}`).parsed || {},
+  env,
 
+  // webpack 5 사용 여부
   future: {
     webpack5: true,
   },

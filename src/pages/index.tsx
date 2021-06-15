@@ -7,6 +7,8 @@ const Home = () => {
   const { fooModel, barModel } = store;
 
   const handleFooClick = () => {
+    const myEnv = process.env.MY_VAL;
+    console.log('env', myEnv);
     fooModel.setCount();
   };
 
@@ -32,3 +34,11 @@ const Home = () => {
 };
 
 export default observer(Home);
+
+export const getServerSideProps = () => {
+  console.log('server side: ', process.env.MY_VAL);
+
+  return {
+    props: {}
+  };
+};
