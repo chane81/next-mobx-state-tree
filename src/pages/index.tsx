@@ -1,14 +1,14 @@
 import { observer } from 'mobx-react-lite';
 import SampleComponent from '../components/SampleComponent';
 import { useStore } from '../stores';
+import env from '../../env';
 
 const Home = () => {
   const store = useStore();
   const { fooModel, barModel } = store;
 
   const handleFooClick = () => {
-    const myEnv = process.env.MY_VAL;
-    console.log('env', myEnv);
+    console.log('env', env.MY_VAL);
     fooModel.setCount();
   };
 
@@ -36,7 +36,7 @@ const Home = () => {
 export default observer(Home);
 
 export const getServerSideProps = () => {
-  console.log('server side: ', process.env.MY_VAL);
+  console.log('server side: ', env.MY_VAL);
 
   return {
     props: {}
