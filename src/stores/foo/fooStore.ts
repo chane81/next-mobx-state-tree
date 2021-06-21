@@ -1,4 +1,3 @@
-import { set } from 'mobx';
 import { Instance, types } from 'mobx-state-tree';
 
 /** model id */
@@ -17,11 +16,15 @@ const model = types
       self.fooVal = val;
     };
 
-    const setCount = () => {
+    const addCount = () => {
       self.count += 1;
     };
 
-    return { setFooVal, setCount };
+    const setCount = (val: number) => {
+      self.count = val;
+    };
+
+    return { setFooVal, addCount, setCount };
   });
 
 /** 초기화 값 */
