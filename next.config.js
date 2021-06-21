@@ -7,10 +7,11 @@ const nextConfig = {
   // .env 값 세팅
   env,
 
-  // webpack 5 사용 여부
-  future: {
-    webpack5: true,
-  },
+  // webpack 5 사용 여부 >> next.js 11 미만 버전에서 아래와 같이 future > webpack5 로 webpack5버전 설정을 할 수 있었으나
+  // next.js 11 버전부터는 webpack5 가 기본이다.
+  // future: {
+  //   webpack5: true,
+  // },
 
   // 웹팩 설정
   webpack: (config, options) => {
