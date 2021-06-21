@@ -3,8 +3,9 @@ import makeInspectable from 'mobx-devtools-mst';
 import { useStore } from '../stores';
 import { onPatch } from 'mobx-state-tree';
 import env from '../../env';
+import { AppPropsType } from 'next/dist/next-server/lib/utils';
 
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }: AppPropsType) => {
   const store = useStore(pageProps.initialState);
 
   // mst 디버깅 로그
@@ -21,4 +22,6 @@ export default function App({ Component, pageProps }) {
       <Component {...pageProps} />
     </Provider>
   );
-}
+};
+
+export default App;
