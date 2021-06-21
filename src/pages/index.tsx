@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react-lite';
-import SampleComponent from '../components/SampleComponent';
 import { useStore } from '../stores';
 import env from '../../env';
 

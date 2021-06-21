@@ -2,7 +2,10 @@ import { getSnapshot } from 'mobx-state-tree';
 import { initializeStore, useStore } from '../stores';
 
 const Ssr = (props) => {
+  // props 를 통해 전달받은 store 값
   console.log('ssr props initialState', props.initialState);
+
+  // mst 의 useStore 를 통한 store 값
   const store = useStore();
 
   console.log('useStore state', store.barModel.barVal);
