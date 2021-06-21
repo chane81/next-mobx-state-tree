@@ -16,11 +16,15 @@ const model = types
       self.barVal = val;
     };
 
-    const setCount = () => {
+    const addCount = () => {
       self.count += 1;
     };
 
-    return { setBarVal, setCount };
+    const setCount = (val: number) => {
+      self.count = val;
+    };
+
+    return { setBarVal, addCount, setCount };
   });
 
 /** 초기화 값 */
