@@ -40,7 +40,7 @@ const defaultValue = {
 
 /** 스토어 initialize */
 /** 참고: https://github.com/vercel/next.js/blob/master/examples/with-mobx-state-tree-typescript/store.ts */
-const initializeStore = (snapshot: any = null): IStore => {
+const initializeStore = (snapshot: null | IStoreSnapshotIn = null): IStore => {
   const _store = initStore ?? store.create(defaultValue);
 
   // snapshot 인자값을 _store 스냅샷으로 적용
@@ -60,7 +60,7 @@ const initializeStore = (snapshot: any = null): IStore => {
 };
 
 /** mobx 스토어 hooks */
-const useStore = (initialState: any = null): IStore => {
+const useStore = (initialState: null | IStoreSnapshotIn = null): IStore => {
   const rtnStore = useMemo(() => initializeStore(initialState), [initialState]);
   return rtnStore;
 };
